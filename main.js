@@ -41,7 +41,7 @@ timer = setInterval(function () {
 
         //chiedo all'utente di inserire i numeri memorizzati
         for (let i = 0; i < 5; i++) {
-            userNumbers.push(prompt("inserisci un numero memorizzato"));
+            userNumbers.push(parseInt(prompt("inserisci un numero memorizzato")));
         }
         console.log(userNumbers);
     }
