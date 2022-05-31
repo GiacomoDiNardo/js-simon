@@ -6,7 +6,7 @@ const randomNumbersContainer = [];
 
 //creo un array per i numeri inseriti dall'utente
 const userNumbers = [];
-
+const rightNumbers = [];
 //genero 5 numeri casuali e li inserisco nell'array
 do{
     const randomNumber = Math.floor(Math.random() * 100 + 1);
@@ -30,18 +30,30 @@ let seconds = 10;
 timer = setInterval(function () {
     
     seconds --;
-
+    
+    console.log("timer " + seconds);
+    
     if (seconds === 0) {
+        //fermo il timer
         clearInterval(timer);
+        //i numeri spariscono allo scadere del timer
         numbersDisplay.classList.add("d-none");
+
+        //chiedo all'utente di inserire i numeri memorizzati
+        for (let i = 0; i < 5; i++) {
+            userNumbers.push(prompt("inserisci un numero memorizzato"));
+        }
+        console.log(userNumbers);
     }
 
-    console.log("timer " + seconds);
+    
 
     timerDisplay.innerHTML = 
     fixStringLength(minuts.toString(), 2, "0") +
     ":" +
     fixStringLength(seconds.toString(), 2, "0");
+
+   
 }, 1000);
 
 
@@ -53,5 +65,4 @@ function fixStringLength(text, length, placeholderChar) {
     }
   
     return result;
-  }
-
+}
