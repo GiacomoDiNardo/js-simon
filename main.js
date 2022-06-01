@@ -26,7 +26,7 @@ numbersDisplay.innerText = randomNumbersContainer.join(" - ");
 
 let timer;
 let minuts = 0;
-let seconds = 10;
+let seconds = 1;
 timer = setInterval(function () {
     
     seconds --;
@@ -41,10 +41,19 @@ timer = setInterval(function () {
 
         //chiedo all'utente di inserire i numeri memorizzati
         for (let i = 0; i < 5; i++) {
-            userNumbers.push(parseInt(prompt("inserisci un numero memorizzato")));
+            const number = parseInt(prompt("inserisci un numero memorizzato"))
+            userNumbers.push(number);
+
+            if (randomNumbersContainer.includes(number)) {
+                rightNumbers.push(number)
+            }
+            
         }
         console.log(userNumbers);
+        console.log("numeri giusti " + rightNumbers);
+        alert("hia indovinato " + rightNumbers.length + " numeri. Numeri indovinati " + rightNumbers)
     }
+
 
     
 
